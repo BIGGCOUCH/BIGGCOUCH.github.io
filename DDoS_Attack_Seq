@@ -1,9 +1,30 @@
 ```mermaid
 sequenceDiagram
- participant Attacker
- participant BotNet
- participant WebServer
- participant Firewall
+    participant Attacker
+    participant BotNet
+    participant WebServer
+    participant Firewall
 
+    Attacker->>BotNet: Command to initiate attack
+    loop Flood Requests
+        BotNet->>WebServer: Send excessive requests
+    end
+    WebServer->>Firewall: Overwhelmed by requests
+    Firewall->>WebServer: Analyze incoming traffic
+    Firewall->>BotNet: Block malicious IPs
+    Firewall-->>Attacker: Report IPs for tracking
 
-```
+# Documentation
+
+Sequence Steps
+1. Attacker: Commands the BotNet to start the DDoS attack.
+2. BotNet: Sends a flood of requests to the WebServer, overwhelming it.
+3. WebServer: Reports unusual traffic to the Firewall for analysis.
+4. Firewall: 
+   - Analyzes traffic, blocks malicious IPs, and restores normal service.
+   - Logs and reports IPs for tracking and further action.
+
+Defensive Measures
+- Traffic Analysis: Firewall identifies attack patterns.
+- IP Blocking: Malicious IPs are blocked to mitigate/stop the attack. (ex, rerouting, stopping, or systems like googles Rapid Reset)
+- Reporting: Attack details are logged for use/reporting
