@@ -1,0 +1,5 @@
+Make sure to enter "http://localhost:3000/gradebook.html" into the browser when running that is the only way this works after opening the sql.
+Username postgres
+The password is admin
+
+node server.js
